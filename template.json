@@ -1,0 +1,175 @@
+{
+  "index_patterns": ["meetup-events-*"],
+  "settings": {
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "doc": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "@version": {
+          "type": "keyword"
+        },
+        "group_geopoint": {
+          "type": "geo_point"
+        },
+        "venue_geopoint": {
+          "type": "geo_point"
+        },
+        "description": {
+          "type": "text"
+        },
+        "duration": {
+          "type": "long"
+        },
+        "event_url": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "group": {
+          "properties": {
+            "category": {
+              "properties": {
+                "id": {
+                  "type": "long"
+                },
+                "name": {
+                  "type": "text"
+                },
+                "shortname": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                }
+              }
+            },
+            "city": {
+              "type": "keyword"
+            },
+            "country": {
+              "type": "keyword"
+            },
+            "group_lat": {
+              "type": "float"
+            },
+            "group_lon": {
+              "type": "float"
+            },
+            "group_photo": {
+              "properties": {
+                "highres_link": {
+                  "type": "keyword"
+                },
+                "photo_id": {
+                  "type": "long"
+                },
+                "photo_link": {
+                  "type": "keyword"
+                },
+                "thumb_link": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "id": {
+              "type": "long"
+            },
+            "join_mode": {
+              "type": "keyword"
+            },
+            "name": {
+              "type": "text"
+            },
+            "state": {
+              "type": "keyword"
+            },
+            "urlname": {
+              "type": "keyword"
+            }
+          }
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "maybe_rsvp_count": {
+          "type": "long"
+        },
+        "mtime": {
+          "type": "long"
+        },
+        "name": {
+          "type": "text"
+        },
+        "payment_required": {
+          "type": "keyword"
+        },
+        "rsvp_limit": {
+          "type": "long"
+        },
+        "status": {
+          "type": "keyword"
+        },
+        "time": {
+          "type": "long"
+        },
+        "utc_offset": {
+          "type": "long"
+        },
+        "venue": {
+          "properties": {
+            "address_1": {
+              "type": "keyword"
+            },
+            "address_2": {
+              "type": "keyword"
+            },
+            "city": {
+              "type": "keyword"
+            },
+            "country": {
+              "type": "keyword"
+            },
+            "lat": {
+              "type": "float"
+            },
+            "lon": {
+              "type": "float"
+            },
+            "name": {
+              "type": "text"
+            },
+            "phone": {
+              "type": "keyword"
+            },
+            "state": {
+              "type": "keyword"
+            },
+            "zip": {
+              "type": "keyword"
+            }
+          }
+        },
+        "venue_visibility": {
+          "type": "keyword"
+        },
+        "visibility": {
+          "type": "keyword"
+        },
+        "yes_rsvp_count": {
+          "type": "long"
+        }
+      }
+    }
+  }
+}
